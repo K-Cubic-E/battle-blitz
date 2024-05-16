@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5knie05d30gb"]
+
+[ext_resource type="Texture2D" uid="uid://dmr6m6l2o04ty" path="res://assets/sprites/BBlogo.png" id="1_m6tnv"]
+[ext_resource type="AudioStream" uid="uid://bttsk368x4xty" path="res://assets/audio/music/menu.ogg" id="2_pbmih"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="logo" type="Sprite2D" parent="."]
+position = Vector2(256.783, 235.271)
+rotation = -0.148957
+scale = Vector2(0.4609, 0.443319)
+texture = ExtResource("1_m6tnv")
+metadata/_edit_lock_ = true
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_pbmih")
+autoplay = true
