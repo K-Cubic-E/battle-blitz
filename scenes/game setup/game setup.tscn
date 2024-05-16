@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://chyja5vuxhvuw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 223.0
+offset_top = 121.0
+offset_right = 753.0
+offset_bottom = 384.0
+text = "i need to fuckin do this"
