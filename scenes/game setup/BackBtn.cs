@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class PlayBtn : Button
+public partial class BackBtn : Button
 {
 	public Vector2 defaultscale;
 	public Vector2 defaultpos;
@@ -11,12 +11,17 @@ public partial class PlayBtn : Button
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		packedscene = (PackedScene)GD.Load("res://scenes//game setup//game setup.tscn");
+		packedscene = (PackedScene)GD.Load("res://scenes//home menu//home.tscn");
 		this.Pressed += () => {
 			this.GetChild<AudioStreamPlayer2D>(2).Play();
 			Node2D instance = (Node2D)packedscene.Instantiate();
 			this.GetParent().GetParent().AddChild(instance);
 			this.GetParent().QueueFree();
+			try {
+				AudioStreamPlayer2D temp = (AudioStreamPlayer2D)instance;
+				temp.Stop();
+			}
+			catch (Exception ex) {}
 		};
 	}
 
@@ -24,14 +29,14 @@ public partial class PlayBtn : Button
 	public override void _Process(double delta)
 	{
 		if (this.IsHovered()) {
-			this.GetChild<Sprite2D>(0).Texture = (Texture2D)GD.Load("res://assets//sprites//playbtnhover.png");
+			this.GetChild<Sprite2D>(0).Texture = (Texture2D)GD.Load("res://assets//sprites//backbtnhover.png");
 			if (!hovered) {
 				this.GetChild<AudioStreamPlayer2D>(1).Play();
 				hovered = true;
 			}
 		}
 		else {
-			this.GetChild<Sprite2D>(0).Texture = (Texture2D)GD.Load("res://assets//sprites//playbtn.png");
+			this.GetChild<Sprite2D>(0).Texture = (Texture2D)GD.Load("res://assets//sprites//backbtn.png");
 			hovered = false;
 		}
 	}

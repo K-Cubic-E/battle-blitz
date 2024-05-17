@@ -1,10 +1,47 @@
-[gd_scene format=3 uid="uid://chyja5vuxhvuw"]
+[gd_scene load_steps=6 format=3 uid="uid://chyja5vuxhvuw"]
+
+[ext_resource type="Texture2D" uid="uid://bm6rwkean6ib3" path="res://assets/sprites/menuBG.png" id="1_15p8q"]
+[ext_resource type="Script" path="res://scenes/game setup/BackBtn.cs" id="2_6x7yi"]
+[ext_resource type="Texture2D" uid="uid://b7gmve4nxe8gy" path="res://assets/sprites/backbtn.png" id="3_1v34d"]
+[ext_resource type="AudioStream" uid="uid://btxgyv706umfv" path="res://assets/audio/sfx/hover.ogg" id="4_p3oxx"]
+[ext_resource type="AudioStream" uid="uid://cbhr5od2f8lia" path="res://assets/audio/sfx/select.ogg" id="5_eowev"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
+z_index = 2
 offset_left = 223.0
 offset_top = 121.0
 offset_right = 753.0
 offset_bottom = 384.0
 text = "i need to fuckin do this"
+
+[node name="MenuBg" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(481, 271.5)
+scale = Vector2(1.00833, 1.02037)
+texture = ExtResource("1_15p8q")
+
+[node name="BackBtn" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 85.0
+offset_bottom = 84.0
+flat = true
+script = ExtResource("2_6x7yi")
+
+[node name="texture" type="Sprite2D" parent="BackBtn"]
+position = Vector2(40, 37)
+scale = Vector2(0.432865, 0.413056)
+texture = ExtResource("3_1v34d")
+metadata/_edit_lock_ = true
+
+[node name="hover" type="AudioStreamPlayer2D" parent="BackBtn"]
+stream = ExtResource("4_p3oxx")
+volume_db = -25.496
+
+[node name="click" type="AudioStreamPlayer2D" parent="BackBtn"]
+stream = ExtResource("5_eowev")
+volume_db = -3.727

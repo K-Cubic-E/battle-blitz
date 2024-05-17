@@ -1,32 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5knie05d30gb"]
+[gd_scene load_steps=8 format=3 uid="uid://b5knie05d30gb"]
 
 [ext_resource type="Texture2D" uid="uid://dmr6m6l2o04ty" path="res://assets/sprites/BBlogo.png" id="1_m6tnv"]
 [ext_resource type="AudioStream" uid="uid://bttsk368x4xty" path="res://assets/audio/music/menu.ogg" id="2_pbmih"]
 [ext_resource type="Texture2D" uid="uid://bm6rwkean6ib3" path="res://assets/sprites/menuBG.png" id="3_ysbg8"]
 [ext_resource type="Texture2D" uid="uid://c6lywnpvmqg48" path="res://assets/sprites/playbtn.png" id="4_77cen"]
 [ext_resource type="Script" path="res://scenes/home menu/PlayBtn.cs" id="4_hrg2x"]
+[ext_resource type="AudioStream" uid="uid://btxgyv706umfv" path="res://assets/audio/sfx/hover.ogg" id="6_g71hu"]
+[ext_resource type="AudioStream" uid="uid://cbhr5od2f8lia" path="res://assets/audio/sfx/select.ogg" id="7_ybrv0"]
 
-[node name="Node2D" type="Node2D"]
+[node name="music" type="AudioStreamPlayer2D"]
+stream = ExtResource("2_pbmih")
+autoplay = true
 
-[node name="logo" type="Sprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="logo" type="Sprite2D" parent="Node2D"]
 position = Vector2(256.783, 235.271)
 rotation = -0.148957
 scale = Vector2(0.4609, 0.443319)
 texture = ExtResource("1_m6tnv")
 metadata/_edit_lock_ = true
 
-[node name="music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_pbmih")
-autoplay = true
-
-[node name="MenuBg" type="Sprite2D" parent="."]
+[node name="MenuBg" type="Sprite2D" parent="Node2D"]
 z_index = -1
 position = Vector2(481, 272.5)
 scale = Vector2(1.01458, 1.02407)
 texture = ExtResource("3_ysbg8")
 metadata/_edit_lock_ = true
 
-[node name="PlayBtn" type="Button" parent="."]
+[node name="PlayBtn" type="Button" parent="Node2D"]
 self_modulate = Color(1, 1, 1, 0)
 offset_left = 629.0
 offset_top = 25.0
@@ -35,8 +37,62 @@ offset_bottom = 138.0
 flat = true
 script = ExtResource("4_hrg2x")
 
-[node name="texture" type="Sprite2D" parent="PlayBtn"]
+[node name="texture" type="Sprite2D" parent="Node2D/PlayBtn"]
 position = Vector2(126, 61)
 scale = Vector2(0.255729, 0.186111)
 texture = ExtResource("4_77cen")
 metadata/_edit_lock_ = true
+
+[node name="hover" type="AudioStreamPlayer2D" parent="Node2D/PlayBtn"]
+stream = ExtResource("6_g71hu")
+volume_db = -25.496
+
+[node name="click" type="AudioStreamPlayer2D" parent="Node2D/PlayBtn"]
+stream = ExtResource("7_ybrv0")
+volume_db = -3.727
+
+[node name="SettingsBtn" type="Button" parent="Node2D"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 642.0
+offset_top = 263.0
+offset_right = 895.0
+offset_bottom = 376.0
+flat = true
+script = ExtResource("4_hrg2x")
+
+[node name="texture" type="Sprite2D" parent="Node2D/SettingsBtn"]
+position = Vector2(126, 61)
+scale = Vector2(0.255729, 0.186111)
+texture = ExtResource("4_77cen")
+metadata/_edit_lock_ = true
+
+[node name="hover" type="AudioStreamPlayer2D" parent="Node2D/SettingsBtn"]
+stream = ExtResource("6_g71hu")
+volume_db = -25.496
+
+[node name="click" type="AudioStreamPlayer2D" parent="Node2D/SettingsBtn"]
+stream = ExtResource("7_ybrv0")
+volume_db = -3.727
+
+[node name="ShopBtn" type="Button" parent="Node2D"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 636.0
+offset_top = 144.0
+offset_right = 889.0
+offset_bottom = 257.0
+flat = true
+script = ExtResource("4_hrg2x")
+
+[node name="texture" type="Sprite2D" parent="Node2D/ShopBtn"]
+position = Vector2(126, 61)
+scale = Vector2(0.255729, 0.186111)
+texture = ExtResource("4_77cen")
+metadata/_edit_lock_ = true
+
+[node name="hover" type="AudioStreamPlayer2D" parent="Node2D/ShopBtn"]
+stream = ExtResource("6_g71hu")
+volume_db = -25.496
+
+[node name="click" type="AudioStreamPlayer2D" parent="Node2D/ShopBtn"]
+stream = ExtResource("7_ybrv0")
+volume_db = -3.727
