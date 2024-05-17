@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqj2ppriggcr8"]
+
+[ext_resource type="Script" path="res://scenes/popup.cs" id="1_rww6h"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rww6h")
+
+[node name="dim" type="ColorRect" parent="."]
+z_index = 60
+offset_left = -23.0
+offset_top = -16.0
+offset_right = 978.0
+offset_bottom = 562.0
+color = Color(0, 0, 0, 0.388235)
+
+[node name="box" type="ColorRect" parent="dim"]
+offset_left = 136.0
+offset_top = 103.0
+offset_right = 854.0
+offset_bottom = 462.0
+color = Color(0, 0, 0, 0.458824)
+
+[node name="title" type="Label" parent="dim"]
+offset_left = 148.0
+offset_top = 116.0
+offset_right = 847.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 37
+text = "title"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="dim"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.029
+anchor_bottom = 0.351
+offset_left = 156.0
+offset_top = 180.0
+offset_right = 838.0
+offset_bottom = 391.0
+text = "lorem ipsum lol this is testing sample text that nobody will fucking read"
+
+[node name="anywhere" type="Label" parent="dim"]
+offset_left = 145.0
+offset_top = 396.0
+offset_right = 844.0
+offset_bottom = 453.0
+theme_override_font_sizes/font_size = 37
+text = "Click anywhere to continue"
+horizontal_alignment = 1

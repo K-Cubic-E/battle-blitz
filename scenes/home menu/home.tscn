@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5knie05d30gb"]
+[gd_scene load_steps=10 format=3 uid="uid://b5knie05d30gb"]
 
 [ext_resource type="Texture2D" uid="uid://dmr6m6l2o04ty" path="res://assets/sprites/BBlogo.png" id="1_m6tnv"]
 [ext_resource type="AudioStream" uid="uid://bttsk368x4xty" path="res://assets/audio/music/menu.ogg" id="2_pbmih"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scenes/home menu/PlayBtn.cs" id="4_hrg2x"]
 [ext_resource type="AudioStream" uid="uid://btxgyv706umfv" path="res://assets/audio/sfx/hover.ogg" id="6_g71hu"]
 [ext_resource type="AudioStream" uid="uid://cbhr5od2f8lia" path="res://assets/audio/sfx/select.ogg" id="7_ybrv0"]
+[ext_resource type="Script" path="res://scenes/home menu/CreditsBtn.cs" id="8_kxnxt"]
+[ext_resource type="Texture2D" uid="uid://cjkpdcdr13p23" path="res://assets/sprites/creditsbtn.png" id="9_yuaci"]
 
 [node name="music" type="AudioStreamPlayer2D"]
 stream = ExtResource("2_pbmih")
@@ -94,5 +96,27 @@ stream = ExtResource("6_g71hu")
 volume_db = -25.496
 
 [node name="click" type="AudioStreamPlayer2D" parent="Node2D/ShopBtn"]
+stream = ExtResource("7_ybrv0")
+volume_db = -3.727
+
+[node name="CreditsBtn" type="Button" parent="Node2D"]
+self_modulate = Color(1, 1, 1, 0)
+offset_top = 426.0
+offset_right = 253.0
+offset_bottom = 539.0
+flat = true
+script = ExtResource("8_kxnxt")
+
+[node name="texture" type="Sprite2D" parent="Node2D/CreditsBtn"]
+position = Vector2(125.5, 57)
+scale = Vector2(0.478, 0.51)
+texture = ExtResource("9_yuaci")
+metadata/_edit_lock_ = true
+
+[node name="hover" type="AudioStreamPlayer2D" parent="Node2D/CreditsBtn"]
+stream = ExtResource("6_g71hu")
+volume_db = -25.496
+
+[node name="click" type="AudioStreamPlayer2D" parent="Node2D/CreditsBtn"]
 stream = ExtResource("7_ybrv0")
 volume_db = -3.727
