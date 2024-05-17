@@ -1,10 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://chyja5vuxhvuw"]
+[gd_scene load_steps=13 format=3 uid="uid://chyja5vuxhvuw"]
 
 [ext_resource type="Texture2D" uid="uid://bm6rwkean6ib3" path="res://assets/sprites/menuBG.png" id="1_15p8q"]
 [ext_resource type="Script" path="res://scenes/game setup/BackBtn.cs" id="2_6x7yi"]
 [ext_resource type="Texture2D" uid="uid://b7gmve4nxe8gy" path="res://assets/sprites/backbtn.png" id="3_1v34d"]
 [ext_resource type="AudioStream" uid="uid://btxgyv706umfv" path="res://assets/audio/sfx/hover.ogg" id="4_p3oxx"]
 [ext_resource type="AudioStream" uid="uid://cbhr5od2f8lia" path="res://assets/audio/sfx/select.ogg" id="5_eowev"]
+[ext_resource type="Texture2D" uid="uid://bqi7eig57i733" path="res://assets/sprites/mediumdifficulty.png" id="6_g75v2"]
+[ext_resource type="Script" path="res://scenes/game setup/difficulty.cs" id="7_run6q"]
+[ext_resource type="Script" path="res://scenes/game setup/DLeftBtn.cs" id="8_aij5u"]
+[ext_resource type="Script" path="res://scenes/game setup/DRightBtn.cs" id="8_c3we2"]
+
+[sub_resource type="Animation" id="Animation_7uv1i"]
+resource_name = "jump"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(474, 470), Vector2(475, 446), Vector2(474, 470)]
+}
+
+[sub_resource type="Animation" id="Animation_tw0m5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(474, 470)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bhuqj"]
+_data = {
+"RESET": SubResource("Animation_tw0m5"),
+"jump": SubResource("Animation_7uv1i")
+}
 
 [node name="Node2D" type="Node2D"]
 
@@ -43,5 +84,66 @@ stream = ExtResource("4_p3oxx")
 volume_db = -25.496
 
 [node name="click" type="AudioStreamPlayer2D" parent="BackBtn"]
+stream = ExtResource("5_eowev")
+volume_db = -3.727
+
+[node name="difficulty" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(474, 470)
+scale = Vector2(0.314375, 0.27875)
+texture = ExtResource("6_g75v2")
+script = ExtResource("7_run6q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="difficulty"]
+libraries = {
+"": SubResource("AnimationLibrary_bhuqj")
+}
+
+[node name="DLeftBtn" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_left = 248.0
+offset_top = 421.0
+offset_right = 347.0
+offset_bottom = 529.0
+flat = true
+script = ExtResource("8_aij5u")
+
+[node name="texture" type="Sprite2D" parent="DLeftBtn"]
+position = Vector2(52.0356, 50.0601)
+scale = Vector2(0.5068, 0.581561)
+texture = ExtResource("3_1v34d")
+metadata/_edit_lock_ = true
+
+[node name="hover" type="AudioStreamPlayer2D" parent="DLeftBtn"]
+stream = ExtResource("4_p3oxx")
+volume_db = -25.496
+
+[node name="click" type="AudioStreamPlayer2D" parent="DLeftBtn"]
+stream = ExtResource("5_eowev")
+volume_db = -3.727
+
+[node name="DRightBtn" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_left = 599.0
+offset_top = 407.0
+offset_right = 722.0
+offset_bottom = 542.0
+flat = true
+script = ExtResource("8_c3we2")
+
+[node name="texture" type="Sprite2D" parent="DRightBtn"]
+position = Vector2(47.6364, 62.4773)
+rotation = 3.12452
+scale = Vector2(0.498093, 0.617165)
+texture = ExtResource("3_1v34d")
+metadata/_edit_lock_ = true
+
+[node name="hover" type="AudioStreamPlayer2D" parent="DRightBtn"]
+stream = ExtResource("4_p3oxx")
+volume_db = -25.496
+
+[node name="click" type="AudioStreamPlayer2D" parent="DRightBtn"]
 stream = ExtResource("5_eowev")
 volume_db = -3.727

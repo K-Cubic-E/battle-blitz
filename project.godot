@@ -24,3 +24,7 @@ window/size/resizable=false
 [dotnet]
 
 project/assembly_name="Battle Blitz"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
